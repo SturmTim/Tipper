@@ -1,0 +1,20 @@
+@baseUrl = http://localhost:5000
+
+
+################################################## Tips
+GET {{baseUrl}}/Tips/MatchResults
+#####
+GET {{baseUrl}}/Tips/TipperNames
+#####
+GET {{baseUrl}}/Tips/Tips/1
+#####
+
+################################################## TipsAdmin
+PUT {{baseUrl}}/TipsAdmin/MatchResults/1
+Content-type: application/json
+
+{
+   "shot": 1,
+   "received": 1
+}
+#####
