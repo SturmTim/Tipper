@@ -1,0 +1,15 @@
+<div class="row">
+  <mat-label class="width-50">{{match!.seq}}</mat-label>
+  <span class="width-100">
+    <span>
+      <app-flag [country]="match!.team1Name" [useText]="true" [isTextLeft]="true"></app-flag>
+    </span>
+    <mat-label>:</mat-label>
+    <app-flag [country]="match!.team2Name" [useText]="true" [isTextLeft]="false"></app-flag>
+  </span>
+  <div class="width-100 center">
+    <input type="number" [(ngModel)]="newValue1">
+    <mat-label>:</mat-label>
+    <input type="number" [(ngModel)]="newValue2">
+  </div>
+</div>
