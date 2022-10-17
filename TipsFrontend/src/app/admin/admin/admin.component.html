@@ -1,6 +1,9 @@
 <div class="row">
   <mat-label class="width-50 header">#</mat-label>
-  <mat-label class="width-100 header">Match</mat-label>
+  <mat-label class="width-150 header">Match</mat-label>
   <mat-label class="width-50 center header">Result</mat-label>
 </div>
-<app-match-result-edit *ngFor="let match of matches" [match]="match"></app-match-result-edit>
+<div class="column gap-8">
+  <app-match-result-edit *ngFor="let match of matches" [match]="match" (changesMade)="refreshMatches()"></app-match-result-edit>
+</div>
+

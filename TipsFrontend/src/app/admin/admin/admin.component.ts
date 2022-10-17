@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatchDto, TipsAdminService, TipsService} from "../../../openapi";
+import {MatchDto, TipsService} from "../../../openapi";
 
 @Component({
   selector: 'app-admin',
@@ -11,7 +11,6 @@ export class AdminComponent implements OnInit {
   matches: MatchDto[] = [];
 
   constructor(
-    private adminService: TipsAdminService,
     private tipsService: TipsService
   ) { }
 
@@ -21,6 +20,9 @@ export class AdminComponent implements OnInit {
     })
   }
 
-
-
+  refreshMatches() {
+    this.tipsService.tipsMatchResultsGet().subscribe(matches => {
+      this.matches = matches;
+    })
+  }
 }

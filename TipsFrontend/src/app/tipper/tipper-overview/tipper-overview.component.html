@@ -4,5 +4,5 @@
 </div>
 <div class="row gap-8">
   <app-tipper-names [tippers]="tippers | filterByGroup: filter" (selectedTipperChanged)="setTips($event)"></app-tipper-names>
-  <app-tipped-matches [tipperName]="selectedTipper" [tips]="tips"></app-tipped-matches>
+  <app-tipped-matches *ngIf="selectedTipper != ''" [tipperName]="selectedTipper" [tips]="tips"></app-tipped-matches>
 </div>

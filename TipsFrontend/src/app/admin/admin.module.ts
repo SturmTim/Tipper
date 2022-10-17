@@ -6,6 +6,7 @@ import { MatchResultEditComponent } from './match-result-edit/match-result-edit.
 import {SharedModule} from "../shared/shared.module";
 import {FormsModule} from "@angular/forms";
 import {AdminRoutingModule} from "./admin-routing.module";
+import {AngularMaterialModule} from "../shared/angular-material.module";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {AdminRoutingModule} from "./admin-routing.module";
     MatFormFieldModule,
     SharedModule,
     FormsModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    AngularMaterialModule
   ]
 })
 export class AdminModule { }
