@@ -1,1 +1,8 @@
-<p>tipper-overview works!</p>
+<div class="row gap-8">
+  <button mat-raised-button color="primary" (click)="filter = ''">All</button>
+  <button mat-raised-button color="primary" *ngFor="let tipperGroup of tipperGroups" (click)="filter = tipperGroup">{{tipperGroup}}</button>
+</div>
+<div class="row gap-8">
+  <app-tipper-names [tippers]="tippers | filterByGroup: filter" (selectedTipperChanged)="setTips($event)"></app-tipper-names>
+  <app-tipped-matches [tipperName]="selectedTipper" [tips]="tips"></app-tipped-matches>
+</div>

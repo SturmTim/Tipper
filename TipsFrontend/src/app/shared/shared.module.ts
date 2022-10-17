@@ -5,6 +5,7 @@ import { FlagComponent } from './flag/flag.component';
 import { ResultPipe } from './result.pipe';
 import { FilterByGroupPipe } from './filter-by-group.pipe';
 import { GoalDiffPipe } from './goal-diff.pipe';
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 
 @NgModule({
@@ -15,8 +16,16 @@ import { GoalDiffPipe } from './goal-diff.pipe';
     FilterByGroupPipe,
     GoalDiffPipe
   ],
+    exports: [
+        MatchResultComponent,
+        FlagComponent,
+        FilterByGroupPipe,
+        GoalDiffPipe,
+        ResultPipe
+    ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatFormFieldModule
   ]
 })
 export class SharedModule { }

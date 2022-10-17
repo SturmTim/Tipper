@@ -1,1 +1,12 @@
-<p>tipper-names works!</p>
+<table>
+  <tr>
+    <th>#</th>
+    <th>Name</th>
+    <th>Gruppe</th>
+  </tr>
+  <tr *ngFor="let tipper of tippers" (click)="tipperSelected(tipper.id)">
+    <td>{{tipper.id}}</td>
+    <td>{{tipper.name}}</td>
+    <td>{{tipper.tippingGroups}}</td>
+  </tr>
+</table>

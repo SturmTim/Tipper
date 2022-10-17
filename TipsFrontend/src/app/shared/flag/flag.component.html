@@ -1,1 +1,5 @@
-<p>flag works!</p>
+<span *ngIf="useText && isTextLeft">{{country}}</span>
+<span>
+  <span class="phoca-flag {{countryCode}}"></span>
+</span>
+<span *ngIf="useText && !isTextLeft">{{country}}</span>

@@ -7,7 +7,7 @@ import {MatchDto, SingleTipDto} from "../../openapi";
 export class ResultPipe implements PipeTransform {
 
   transform(tip : SingleTipDto | MatchDto): string {
-    return `${tip.shot ? tip.shot : ''} : ${tip.received ? tip.received : ''}`;
+    return `${tip.shot != null ? tip.shot : ' '}:${tip.received != null ? tip.received : ' '}`;
   }
 
 }

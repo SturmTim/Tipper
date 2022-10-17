@@ -1,1 +1,12 @@
-<p>match-result works!</p>
+<div class="row">
+  <mat-label class="width-50">{{match!.seq}}</mat-label>
+  <span class="width-100">
+    <span>
+      <app-flag [country]="match!.team1Name"></app-flag>
+    </span>
+    <mat-label>:</mat-label>
+    <app-flag [country]="match!.team2Name"></app-flag>
+  </span>
+  <mat-label class="width-50 center">{{match! | result}}</mat-label>
+  <mat-label class="width-50 center">{{tip! | result}}</mat-label>
+</div>

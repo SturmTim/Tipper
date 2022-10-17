@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatchDto, TipsAdminService, TipsService} from "../../../openapi";
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  matches: MatchDto[] = [];
+
+  constructor(
+    private adminService: TipsAdminService,
+    private tipsService: TipsService
+  ) { }
 
   ngOnInit(): void {
+    this.tipsService.tipsMatchResultsGet().subscribe(matches => {
+      this.matches = matches;
+    })
   }
+
+
 
 }
