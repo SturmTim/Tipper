@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MatchDto, TipsAdminService} from "../../../openapi";
 
 @Component({
@@ -8,9 +8,8 @@ import {MatchDto, TipsAdminService} from "../../../openapi";
 })
 export class MatchResultEditComponent implements OnInit {
   @Input() match: MatchDto | undefined;
-  newValue1: number = 1;
-  newValue2: number = 1;
-  @Output() changesMade: EventEmitter<MatchDto> = new EventEmitter<MatchDto>();
+  newValue1: number = 0;
+  newValue2: number = 0;
 
   constructor(
     private adminService: TipsAdminService
@@ -24,8 +23,7 @@ export class MatchResultEditComponent implements OnInit {
   saveChanges() {
     this.match!.shot = this.newValue1;
     this.match!.received = this.newValue2;
-    this.adminService.tipsAdminMatchResultsIdPut(this.match!.id, this.match).subscribe(x => {
-      this.changesMade.emit(x);
+    this.adminService.tipsAdminMatchResultsIdPut(this.match!.id, this.match).subscribe(() => {
     })
   }
 }

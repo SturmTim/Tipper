@@ -4,6 +4,6 @@
   <mat-label class="width-50 center header">Result</mat-label>
 </div>
 <div class="column gap-8">
-  <app-match-result-edit *ngFor="let match of matches" [match]="match" (changesMade)="refreshMatches()"></app-match-result-edit>
+  <app-match-result-edit *ngFor="let match of matches" [match]="match"></app-match-result-edit>
 </div>
 

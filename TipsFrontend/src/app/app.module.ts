@@ -7,9 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {environment} from "../environments/environment";
 import {BASE_PATH} from "../openapi";
 import {SharedModule} from "./shared/shared.module";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AngularMaterialModule} from "./shared/angular-material.module";
 import {TipperModule} from "./tipper/tipper.module";
+import {LogInterceptor} from "./core/log";
+import {ErrorInterceptor} from "./core/error";
+import {CoreModule} from "./core/core.module";
 
 @NgModule({
   declarations: [
@@ -22,9 +25,12 @@ import {TipperModule} from "./tipper/tipper.module";
       SharedModule,
       AngularMaterialModule,
       TipperModule,
-      HttpClientModule
+      HttpClientModule,
+      CoreModule
     ],
-  providers: [{provide: BASE_PATH, useValue: environment.basePath},],
+  providers: [{provide: BASE_PATH, useValue: environment.basePath},
+    {provide: HTTP_INTERCEPTORS, useClass: LogInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

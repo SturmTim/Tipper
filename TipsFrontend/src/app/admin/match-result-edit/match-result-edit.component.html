@@ -7,8 +7,8 @@
     <mat-label>:</mat-label>
     <app-flag [country]="match!.team2Name" [useText]="true" [isTextLeft]="false"></app-flag>
   </span>
-  <input type="number" class="width-50" [(ngModel)]="newValue1">
+  <input type="number" class="width-50" [min]="0" [(ngModel)]="newValue1">
   <mat-label>:</mat-label>
-  <input type="number" class="width-50" [(ngModel)]="newValue2">
+  <input type="number" class="width-50" [min]="0" [(ngModel)]="newValue2">
   <button mat-raised-button color="primary" *ngIf="(newValue1 != match!.shot && newValue1 || newValue2 != match!.received) && (newValue1 != null && newValue2 != null)" (click)="saveChanges()">Save</button>
 </div>

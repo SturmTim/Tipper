@@ -19,10 +19,4 @@ export class AdminComponent implements OnInit {
       this.matches = matches;
     })
   }
-
-  refreshMatches() {
-    this.tipsService.tipsMatchResultsGet().subscribe(matches => {
-      this.matches = matches;
-    })
-  }
 }
